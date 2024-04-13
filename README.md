@@ -1,2 +1,3 @@
-# museum-backend
-Hacks-ai.ru 2024 hackathon backend 
+#hacks-ai
+
+Hacks-ai museum backend from DoberTeam
