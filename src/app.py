@@ -40,7 +40,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount('/api/images/', StaticFiles(directory=os.path.join('/',*os.getcwd().split('/'),'files')))
+app.mount('/api/images/', StaticFiles(directory=os.path.join('/',*os.getcwd().split('/')[:-2],'data','images')))
 
 
 @app.on_event("startup")
