@@ -46,12 +46,19 @@ app.mount('/api/images/', StaticFiles(directory=os.path.join('/',*os.getcwd().sp
 @app.on_event("startup")
 async def startup():
     async with engine.begin() as conn:
-        await conn.execute(text('DROP SCHEMA public CASCADE;'))
-        await conn.execute(text('CREATE SCHEMA public;'))
-        await conn.execute(text('GRANT ALL ON SCHEMA public TO postgres;'))
-        await conn.execute(text('GRANT ALL ON SCHEMA public TO public;'))
-        await conn.execute(text('CREATE EXTENSION IF NOT EXISTS vector;'))
-        await conn.run_sync(Base.metadata.create_all)
+        # await conn.execute(text('DROP SCHEMA public CASCADE;'))
+        # await conn.execute(text('CREATE SCHEMA public;'))
+        # await conn.execute(text('GRANT ALL ON SCHEMA public TO postgres;'))
+        # await conn.execute(text('GRANT ALL ON SCHEMA public TO public;'))
+
+        # await conn.execute(text('CREATE EXTENSION IF NOT EXISTS pg_trgm;'))
+        # await conn.execute(text('CREATE EXTENSION IF NOT EXISTS vector;'))
+
+        # await conn.run_sync(Base.metadata.drop_all)
+        # await conn.run_sync(Base.metadata.create_all)
+        
+        
+        pass
 
 
 if __name__ == "__main__":

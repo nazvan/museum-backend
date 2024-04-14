@@ -5,7 +5,7 @@ from db.config import Base
 from pgvector.sqlalchemy import Vector
 from sqlalchemy.orm import mapped_column
 
-EMBEDDING_SIZE = 1024
+EMBEDDING_SIZE = 640
 
 
 
@@ -13,14 +13,12 @@ class ExhibitModel(Base):
     "Data model for exhibit"
     __tablename__ = "exhibit"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(String, primary_key=True)
     exh_id = Column(Integer, nullable=True)
     name = Column(String, nullable=True)  
-    type_id = Column(Integer, nullable=True) 
-    desc = Column(String, nullable=True)
-    url = Column(String, nullable=True) 
+    type_id = Column(String, nullable=True) 
+    description = Column(String, nullable=True)
     timestamp = Column(Integer, nullable=True) 
-    image_path = Column(String, nullable=True)
     embedding = mapped_column(Vector(EMBEDDING_SIZE))  
 
 
